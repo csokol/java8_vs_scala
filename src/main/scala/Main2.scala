@@ -3,9 +3,10 @@ object Main2 {
 
   def main(args: Array[String]) {
 
+    val b = new Builder()
     val l = List("msg1", "msg2", "msg3")
 
-    val b = l.foldLeft(new Builder())(op)
+    l.par.foreach(b.add)
 
     println(b)
   }

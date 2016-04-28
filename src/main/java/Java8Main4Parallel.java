@@ -8,10 +8,10 @@ import static java.util.stream.Collectors.toList;
 public class Java8Main4Parallel {
 
     public static void main(String[] args) {
-        List<String> msgs = IntStream.range(0, 10000).mapToObj(i -> "msg" + i).collect(toList());
+        List<String> msgs = IntStream.range(0, 100000).mapToObj(i -> "msg" + i).collect(toList());
 
         BiFunction<ImmutableBuilder, String, ImmutableBuilder> acc = (b, msg) -> {
-            System.out.println(Thread.currentThread().getId());
+//            System.out.println(Thread.currentThread().getId());
             return b.add(msg);
         };
 
@@ -26,9 +26,9 @@ public class Java8Main4Parallel {
 
         System.out.println(t1 - t0);
 
-        System.out.println(builder);
+//        System.out.println(builder);
 
-        Java8Main4.main(new String[]{});
+//        Java8Main4.main(new String[]{});
     }
 
 }
